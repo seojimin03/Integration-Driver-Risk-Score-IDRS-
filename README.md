@@ -8,7 +8,7 @@
 ## 📌 Overview
 
 상업적 DMS가 고가의 IR 카메라와 전용 하드웨어를 요구하는 한계를 극복하기 위해,
-**단일 grayscale 카메라만으로 운전자의 6가지 부주의 상태를 통합 분류**하는 시스템을 제안한다.
+**단일 grayscale 카메라만으로 운전자의 6가지 부주의 상태를 통합 분류**하는 시스템을 제안한다. 자세한 사항 및 연구 관련 내용은 /docs/Term Project(12223552 서지민)을 참고하면 자세한 내용을 볼 수 있다.
 
 - **Classical(HOG+SVM) · CNN(EfficientNet-B0) · Transformer(ViT-Small)** 세 paradigm을 동일 조건에서 비교
 - **단순 정확도를 넘어** Risk-weighted Cost · Reliability Diagram · Grad-CAM을 결합한 다층 평가 프레임워크 제안
