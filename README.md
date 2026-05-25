@@ -113,6 +113,7 @@ data/
   <em>Figure. 클래스별 샘플 이미지 (bbox = 행동 단서 포함 영역)</em>
 </p>
 ---
+
 ## Reproduction Guide
 **Scenario A** 학습부터(Colab T4 GPU)
 
