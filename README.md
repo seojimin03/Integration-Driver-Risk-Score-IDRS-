@@ -66,6 +66,7 @@ bash
 git clone (https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-.git)
 cd idrs-driver-inattention
 pip install -r requirements.txt
+
 ---
 ## Dataset
 본 연구는 Kaggle에서 (Driver Monitoring Dataset, v6, CC BY 4.0) 를 사용한다.
@@ -107,7 +108,7 @@ data/
 - CrossEntropyLoss(weight='balanced') (loss 단위 가중)
 
 **Training Strategy (DL models)**
-- 2-Phase Fine-tuning: Head warmup (3 epoch) → Full fine-tuning (max 30, Early Stop patience=5)
+- 2-Phase Fine-tuning: Head warmup (3 epoch) → Full fine-tuning (max 30, Early Stop patience=5(EfficientNet-B0), 8(ViT-Small)
 - Optimizer: AdamW (weight_decay=1e-3)
 - LR Scheduler: Cosine Annealing (eta_min=1e-6)
 - Loss: CrossEntropyLoss + Label Smoothing 0.1
