@@ -65,7 +65,7 @@ GPU memory: 15.6 GB
 ```bash
 git clone https://github.com/<your-id>/idrs-driver-inattention.git
 cd idrs-driver-inattention
-pip install -r requirements.txt
+pip install -r requirements.txt'''
 ---
 ## Dataset
 본 연구는 Kaggle에서 (Driver Monitoring Dataset, v6, CC BY 4.0) 를 사용한다.
