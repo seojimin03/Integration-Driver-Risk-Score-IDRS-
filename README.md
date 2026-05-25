@@ -15,7 +15,6 @@
 - 6 classes: `SafeDriving`, `Distracted`, `Drinking`, `SleepyDriving`, `Yawn`, `DangerousDriving`
 
 ---
-
 ## 📊 Key Results
 
 ### Test Performance (n = 985)
@@ -31,6 +30,7 @@
   <br>
   <em>Figure. (좌) ROC Full View — (중) Zoom view — (우) 3-Model 비교</em>
 </p>
+
 ### Key Findings
 
 -  **ViT-Small이 6개 지표 모두에서 근소하게 우위** — 특히 안전 직결 클래스(SleepyDriving Recall 0.99)
@@ -39,7 +39,6 @@
 -  **단일 failure mode**: 비용 큰 오분류 Top 6이 모두 "옆모습 Distracted → SafeDriving" 패턴 → grayscale 모달리티의 본질적 한계
 
 ---
-
 ## 🗂️ Repository Structure
 
 ```
@@ -64,6 +63,7 @@
 └── data/
 └── README.md ← 데이터셋 다운로드 안내
 ```
+
 ---
 ## ⚙️ Environment Setup(Google Colab 환경 기준)
 Python  : 3.12.13
@@ -79,6 +79,7 @@ git clone (https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-.git
 cd idrs-driver-inattention
 pip install -r requirements.txt
 ```
+
 ---
 ## Dataset
 본 연구는 Kaggle에서 (Driver Monitoring Dataset, v6, CC BY 4.0) 를 사용한다.
