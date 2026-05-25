@@ -31,7 +31,7 @@
 
 ## 🗂️ Repository Structure
 
-
+```
 ├── README.md
 ├── requirements.txt ← pip 의존성
 ├── environment.yaml ← conda 환경 (대안)
@@ -52,7 +52,7 @@
 │
 └── data/
 └── README.md ← 데이터셋 다운로드 안내
-
+```
 ---
 ## ⚙️ Environment Setup(Google Colab 환경 기준)
 Python  : 3.12.13
@@ -62,11 +62,12 @@ GPU : Tesla T4
 GPU memory: 15.6 GB
 
 ### Option A - pip
+```
 bash
 git clone (https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-.git)
 cd idrs-driver-inattention
 pip install -r requirements.txt
-
+```
 ---
 ## Dataset
 본 연구는 Kaggle에서 (Driver Monitoring Dataset, v6, CC BY 4.0) 를 사용한다.
