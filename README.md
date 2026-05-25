@@ -161,9 +161,9 @@ data/
 ---
 ## Visual Analysis
 Training Curves
-<p align="center"> <img src="./results/figures/curves_efficientnet.png" width="48%"> <img src="./results/figures/curves_vit.png" width="48%"> <br> <em>Figure. EfficientNet-B0(좌) 및 ViT-Small(우) 학습 곡선 — Phase 1→2 전환 표시</em> </p>
+<p align="center"> <img src="./results/figures/curves_efficientnet.png" width="80%"> <img src="./results/figures/curves_vit.png" width="80%"> <br> <em>Figure. EfficientNet-B0(좌) 및 ViT-Small(우) 학습 곡선 — Phase 1→2 전환 표시</em> </p>
 Confusion Matrix
-<p align="center"> <img src="./results/figures/cm_efficientnet.png" width="48%"> <img src="./results/figures/cm_vit.png" width="48%"> <br> <em>Figure. Confusion Matrix — Count(좌) & Recall 정규화(우)</em> </p>
+<p align="center"> <img src="./results/figures/cm_efficientnet.png" width="80%"> <img src="./results/figures/cm_vit.png" width="80%"> <br> <em>Figure. Confusion Matrix — Count(좌) & Recall 정규화(우)</em> </p>
 Grad-CAM Interpretation
 <p align="center"> <img src="./results/figures/analysis_gradcam_efficientnet.png" width="90%"> <br> <em>Figure. EfficientNet-B0 — 국소적·집중형 attention (눈, 입, 컵 등 단서 영역)</em> </p> <p align="center"> <img src="./results/figures/analysis_gradcam_vit.png" width="90%"> <br> <em>Figure. ViT-Small — 광역적·분산형 attention (얼굴 전체 + 주변 context)</em> </p>
 Failure Case Analysis
