@@ -1,0 +1,38 @@
+# ─────────────────────────────────────────────────────
+# IDRS: Driver Inattention Detection — Conda Environment
+# Verified on: Google Colab T4 GPU
+#   Python 3.12.13 / CUDA 12.8
+# ─────────────────────────────────────────────────────
+name: idrs
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pip>=24.0
+
+  # Classical ML
+  - scikit-learn=1.6.1
+  - scikit-image=0.25.2
+  - joblib=1.5.3
+
+  # Data
+  - numpy=2.0.2
+  - pandas=2.2.2
+  - pyarrow=18.1.0
+  - pillow=11.3.0
+
+  # Visualization
+  - matplotlib=3.10.0
+  - seaborn=0.13.2
+
+  # Notebook
+  - jupyter
+  - ipykernel
+
+  # PyTorch + 도메인 라이브러리는 pip
+  - pip:
+      - torch==2.10.0
+      - torchvision==0.25.0
+      - timm==1.0.26
+      - grad-cam==1.5.5

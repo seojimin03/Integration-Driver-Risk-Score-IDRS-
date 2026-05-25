@@ -1,0 +1,4 @@
+,Accuracy,F1 (macro),F1 (weighted),Precision (macro),Recall (macro),ROC-AUC (OvR)
+HOG+SVM (LinearSVC),0.9117,0.8690,0.9122,0.8555,0.8858,0.9814
+EfficientNet-B0,0.9675,0.9603,0.9677,0.9460,0.9762,0.9972
+ViT-Small,0.9756,0.9716,0.9757,0.9613,0.9827,0.9988

@@ -1,0 +1,7 @@
+class,risk,Precision,Recall,F1,Support
+DangerousDriving,Critical,0.9967,1.0000,0.9983,301
+Distracted,High,0.9412,0.9474,0.9443,152
+Drinking,Critical,0.9259,1.0000,0.9615,25
+SafeDriving,Low,0.9851,0.9636,0.9742,412
+SleepyDriving,Critical,0.9189,0.9855,0.9510,69
+Yawn,Medium,1.0000,1.0000,1.0000,26

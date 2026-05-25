@@ -1,0 +1,72 @@
+{
+  "class_list": [
+    "DangerousDriving",
+    "Distracted",
+    "Drinking",
+    "SafeDriving",
+    "SleepyDriving",
+    "Yawn"
+  ],
+  "class_to_idx": {
+    "DangerousDriving": 0,
+    "Distracted": 1,
+    "Drinking": 2,
+    "SafeDriving": 3,
+    "SleepyDriving": 4,
+    "Yawn": 5
+  },
+  "risk_level": {
+    "SafeDriving": [
+      "Low",
+      "#2ecc71"
+    ],
+    "Yawn": [
+      "Medium",
+      "#f39c12"
+    ],
+    "Distracted": [
+      "High",
+      "#e67e22"
+    ],
+    "Drinking": [
+      "Critical",
+      "#e74c3c"
+    ],
+    "SleepyDriving": [
+      "Critical",
+      "#c0392b"
+    ],
+    "DangerousDriving": [
+      "Critical",
+      "#8b0000"
+    ]
+  },
+  "risk_w": {
+    "Low": 1,
+    "Medium": 2,
+    "High": 3,
+    "Critical": 4
+  },
+  "img_size": 224,
+  "batch_size": 32,
+  "hog_params": {
+    "orientations": 9,
+    "pixels_per_cell": [
+      8,
+      8
+    ],
+    "cells_per_block": [
+      2,
+      2
+    ],
+    "block_norm": "L2-Hys",
+    "feature_vector": true
+  },
+  "hog_size": 64,
+  "best_svm_C": 0.01,
+  "splits": {
+    "train": 11948,
+    "val": 1922,
+    "test": 985
+  }
+}
