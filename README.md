@@ -8,14 +8,13 @@
 ## 📌 Overview
 
 상업적 DMS가 고가의 IR 카메라와 전용 하드웨어를 요구하는 한계를 극복하기 위해,
-**단일 grayscale 카메라만으로 운전자의 6가지 부주의 상태를 통합 분류**하는 시스템을 제안한다.
+**단일 grayscale 카메라만으로 운전자의 6가지 부주의 상태를 통합 분류**하는 시스템을 제안한다. 자세한 사항 및 연구 관련 내용은 /docs/Term Project(12223552 서지민)을 참고하면 자세한 내용을 볼 수 있다.
 
 - **Classical(HOG+SVM) · CNN(EfficientNet-B0) · Transformer(ViT-Small)** 세 paradigm을 동일 조건에서 비교
 - **단순 정확도를 넘어** Risk-weighted Cost · Reliability Diagram · Grad-CAM을 결합한 다층 평가 프레임워크 제안
 - 6 classes: `SafeDriving`, `Distracted`, `Drinking`, `SleepyDriving`, `Yawn`, `DangerousDriving`
 
 ---
-
 ## 📊 Key Results
 
 ### Test Performance (n = 985)
@@ -31,6 +30,7 @@
   <br>
   <em>Figure. (좌) ROC Full View — (중) Zoom view — (우) 3-Model 비교</em>
 </p>
+
 ### Key Findings
 
 -  **ViT-Small이 6개 지표 모두에서 근소하게 우위** — 특히 안전 직결 클래스(SleepyDriving Recall 0.99)
@@ -39,7 +39,6 @@
 -  **단일 failure mode**: 비용 큰 오분류 Top 6이 모두 "옆모습 Distracted → SafeDriving" 패턴 → grayscale 모달리티의 본질적 한계
 
 ---
-
 ## 🗂️ Repository Structure
 
 ```
@@ -64,6 +63,7 @@
 └── data/
 └── README.md ← 데이터셋 다운로드 안내
 ```
+
 ---
 ## ⚙️ Environment Setup(Google Colab 환경 기준)
 Python  : 3.12.13
@@ -79,6 +79,7 @@ git clone (https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-.git
 cd idrs-driver-inattention
 pip install -r requirements.txt
 ```
+
 ---
 ## Dataset
 본 연구는 Kaggle에서 (Driver Monitoring Dataset, v6, CC BY 4.0) 를 사용한다.
@@ -112,7 +113,9 @@ data/
   <br>
   <em>Figure. 클래스별 샘플 이미지 (bbox = 행동 단서 포함 영역)</em>
 </p>
+
 ---
+
 ## Reproduction Guide
 **Scenario A** 학습부터(Colab T4 GPU)
 
@@ -123,10 +126,12 @@ data/
 **Scenario B** - 학습 스킵, 저장된 가중치만 사용
 
 1. 사전 학습 가중치 다운로드:
-- effnet_b0_final.pth (~21 MB)
-- vit_small_final.pth (~85 MB)
-- hog_svm.joblib (~수 MB)
-- test_results.npz, meta.json, df_test.parquet
+[Releases v1.0](https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-/releases/tag/v1.0.0)에서 다음 파일 다운로드:
+   - [effnet_b0_final.pth](https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-/releases/download/v1.0.0/effnet_b0_final.pth)
+   - [vit_small_final.pth](https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-/releases/download/v1.0.0/vit_small_final.pth)
+   - [hog_svm.joblib](https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-/releases/download/v1.0.0/hog_svm.joblib)
+   - [test_results.npz](https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-/releases/download/v1.0.0/test_results.npz)
+   - [df_test.parquet](https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-/releases/download/v1.0.0/df_test.parquet)
 2. Drive의 results/ 디렉토리에 업로드
 3. notebooks/DriverInattention_Analysis.ipynb 실행 → ROC, Grad-CAM, 신뢰도 분석 자동 생성
 
@@ -156,9 +161,9 @@ data/
 ---
 ## Visual Analysis
 Training Curves
-<p align="center"> <img src="./results/figures/curves_efficientnet.png" width="48%"> <img src="./results/figures/curves_vit.png" width="48%"> <br> <em>Figure. EfficientNet-B0(좌) 및 ViT-Small(우) 학습 곡선 — Phase 1→2 전환 표시</em> </p>
+<p align="center"> <img src="./results/figures/curves_efficientnet.png" width="80%"> <img src="./results/figures/curves_vit.png" width="80%"> <br> <em>Figure. EfficientNet-B0(좌) 및 ViT-Small(우) 학습 곡선 — Phase 1→2 전환 표시</em> </p>
 Confusion Matrix
-<p align="center"> <img src="./results/figures/cm_efficientnet.png" width="48%"> <img src="./results/figures/cm_vit.png" width="48%"> <br> <em>Figure. Confusion Matrix — Count(좌) & Recall 정규화(우)</em> </p>
+<p align="center"> <img src="./results/figures/cm_efficientnet.png" width="80%"> <img src="./results/figures/cm_vit.png" width="80%"> <br> <em>Figure. Confusion Matrix — Count(좌) & Recall 정규화(우)</em> </p>
 Grad-CAM Interpretation
 <p align="center"> <img src="./results/figures/analysis_gradcam_efficientnet.png" width="90%"> <br> <em>Figure. EfficientNet-B0 — 국소적·집중형 attention (눈, 입, 컵 등 단서 영역)</em> </p> <p align="center"> <img src="./results/figures/analysis_gradcam_vit.png" width="90%"> <br> <em>Figure. ViT-Small — 광역적·분산형 attention (얼굴 전체 + 주변 context)</em> </p>
 Failure Case Analysis
