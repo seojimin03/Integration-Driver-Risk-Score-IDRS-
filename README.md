@@ -126,10 +126,12 @@ data/
 **Scenario B** - 학습 스킵, 저장된 가중치만 사용
 
 1. 사전 학습 가중치 다운로드:
-- effnet_b0_final.pth (~21 MB)
-- vit_small_final.pth (~85 MB)
-- hog_svm.joblib (~수 MB)
-- test_results.npz, meta.json, df_test.parquet
+[Releases v1.0](https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-/releases/tag/v1.0.0)에서 다음 파일 다운로드:
+   - [effnet_b0_final.pth](https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-/releases/download/v1.0.0/effnet_b0_final.pth)
+   - [vit_small_final.pth](https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-/releases/download/v1.0.0/vit_small_final.pth)
+   - [hog_svm.joblib](https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-/releases/download/v1.0.0/hog_svm.joblib)
+   - [test_results.npz](https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-/releases/download/v1.0.0/test_results.npz)
+   - [df_test.parquet](https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-/releases/download/v1.0.0/df_test.parquet)
 2. Drive의 results/ 디렉토리에 업로드
 3. notebooks/DriverInattention_Analysis.ipynb 실행 → ROC, Grad-CAM, 신뢰도 분석 자동 생성
 
