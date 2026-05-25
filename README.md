@@ -1,6 +1,6 @@
 # IDRS: Integrated Driver Risk-Score System
 
-**Unified Driver Inattention Detection using a Single GrayScle Camera**
+**Unified Driver Inattention Detection using a Single GrayScale Camera**
 
 [2026-1] Machine Learning Term Project · 인공지능공학과 · 12223552 서지민
 
@@ -20,6 +20,17 @@
 
 ### Test Performance (n = 985)
 
+| Model | Accuracy | F1 (macro) | ROC-AUC (OvR) | **Risk Score** | **Total Cost** |
+|-------|:--------:|:----------:|:-------------:|:--------------:|:--------------:|
+| HOG + LinearSVC | 0.9117 | 0.8690 | 0.9814 | 0.9735 | 418 |
+| EfficientNet-B0 | 0.9675 | 0.9603 | 0.9972 | 0.9936 | 101 |
+| **ViT-Small** | **0.9756** | **0.9716** | **0.9988** | **0.9952** | **75** |
+
+<p align="center">
+  <img src="./results/figures/analysis_roc_compare.png" width="90%">
+  <br>
+  <em>Figure. (좌) ROC Full View — (중) Zoom view — (우) 3-Model 비교</em>
+</p>
 ### Key Findings
 
 -  **ViT-Small이 6개 지표 모두에서 근소하게 우위** — 특히 안전 직결 클래스(SleepyDriving Recall 0.99)
@@ -31,7 +42,7 @@
 
 ## 🗂️ Repository Structure
 
-
+```
 ├── README.md
 ├── requirements.txt ← pip 의존성
 ├── environment.yaml ← conda 환경 (대안)
@@ -52,7 +63,7 @@
 │
 └── data/
 └── README.md ← 데이터셋 다운로드 안내
-
+```
 ---
 ## ⚙️ Environment Setup(Google Colab 환경 기준)
 Python  : 3.12.13
@@ -62,22 +73,45 @@ GPU : Tesla T4
 GPU memory: 15.6 GB
 
 ### Option A - pip
+```
 bash
 git clone (https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-.git)
 cd idrs-driver-inattention
 pip install -r requirements.txt
-
+```
 ---
 ## Dataset
 본 연구는 Kaggle에서 (Driver Monitoring Dataset, v6, CC BY 4.0) 를 사용한다.
 
 https://www.kaggle.com/datasets/zeyad1mashhour/driver-inattention-detection-dataset/code
-
+다운로드 후 `data/` 폴더 아래 다음 구조로 배치한다:
+```
 data/
-├── train/   (11,948장 + _annotations.txt + _classes.txt)
-├── valid/   (1,922장)
-└── test/    (985장)
-
+├── train/
+│ ├── _annotations.txt
+│ ├── _classes.txt
+│ └── *.jpg (11,948장)
+├── valid/
+│ ├── _annotations.txt
+│ ├── _classes.txt
+│ └── *.jpg (1,922장)
+└── test/
+├── _annotations.txt
+├── _classes.txt
+└── *.jpg (985장)
+```
+- **Annotation format**: YOLO v3 (Keras), `filename x1,y1,x2,y2,class_idx`
+- **Classes (index 순)**: `DangerousDriving`, `Distracted`, `Drinking`, `SafeDriving`, `SleepyDriving`, `Yawn`
+<p align="center">
+  <img src="./results/figures/eda_distribution.png" width="85%">
+  <br>
+  <em>Figure. 클래스 분포 (Train / Val / Test) — 최대 16:1 불균형</em>
+</p>
+<p align="center">
+  <img src="./results/figures/eda_samples.png" width="80%">
+  <br>
+  <em>Figure. 클래스별 샘플 이미지 (bbox = 행동 단서 포함 영역)</em>
+</p>
 ---
 ## Reproduction Guide
 **Scenario A** 학습부터(Colab T4 GPU)
@@ -118,6 +152,17 @@ data/
 - **Domain-specific**: Risk-weighted Score with quadratic cost
 - (Risk levels: Low(1) < Medium(2) < High(3) < Critical(4))
 - **cost(i,j) = max(1,risk(i)−risk(j)+1)^2**
+
+---
+## Visual Analysis
+Training Curves
+<p align="center"> <img src="./results/figures/curves_efficientnet.png" width="48%"> <img src="./results/figures/curves_vit.png" width="48%"> <br> <em>Figure. EfficientNet-B0(좌) 및 ViT-Small(우) 학습 곡선 — Phase 1→2 전환 표시</em> </p>
+Confusion Matrix
+<p align="center"> <img src="./results/figures/cm_efficientnet.png" width="48%"> <img src="./results/figures/cm_vit.png" width="48%"> <br> <em>Figure. Confusion Matrix — Count(좌) & Recall 정규화(우)</em> </p>
+Grad-CAM Interpretation
+<p align="center"> <img src="./results/figures/analysis_gradcam_efficientnet.png" width="90%"> <br> <em>Figure. EfficientNet-B0 — 국소적·집중형 attention (눈, 입, 컵 등 단서 영역)</em> </p> <p align="center"> <img src="./results/figures/analysis_gradcam_vit.png" width="90%"> <br> <em>Figure. ViT-Small — 광역적·분산형 attention (얼굴 전체 + 주변 context)</em> </p>
+Failure Case Analysis
+<p align="center"> <img src="./results/figures/analysis_failure_gradcam.png" width="90%"> <br> <em>Figure. 비용 큰 오분류 Top 6 — 옆모습 Distracted → SafeDriving 단일 패턴</em> </p>
 
 ---
 ## License
