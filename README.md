@@ -62,10 +62,10 @@ GPU : Tesla T4
 GPU memory: 15.6 GB
 
 ### Option A - pip
-```bash
-git clone https://github.com/<your-id>/idrs-driver-inattention.git
+bash
+git clone (https://github.com/seojimin03/Integration-Driver-Risk-Score-IDRS-.git)
 cd idrs-driver-inattention
-pip install -r requirements.txt'''
+pip install -r requirements.txt
 ---
 ## Dataset
 본 연구는 Kaggle에서 (Driver Monitoring Dataset, v6, CC BY 4.0) 를 사용한다.
