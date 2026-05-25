@@ -175,5 +175,9 @@ Code: MIT License
 Dataset(DMD): https://www.kaggle.com/datasets/zeyad1mashhour/driver-inattention-detection-dataset/code
 
 ---
+## AI Tool Use
+보조 도구로 Anthropic Claude (Sonnet 4.5) 활용. 상세 명세는 `docs/` 보고서 부록 참조.
+
+---
 ## Author
 **인공지능공학과 12223552 서지민**
