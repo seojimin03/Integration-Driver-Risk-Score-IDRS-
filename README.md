@@ -17,7 +17,7 @@
 ---
 ## 📊 Key Results
 
-### Test Performance (n = 985)
+### Test Performance (n = 985) 위험도 가중 평가 분석 결과 ViT-Small 채택
 
 | Model | Accuracy | F1 (macro) | ROC-AUC (OvR) | **Risk Score** | **Total Cost** |
 |-------|:--------:|:----------:|:-------------:|:--------------:|:--------------:|
@@ -52,8 +52,8 @@
 │ └── DriverInattention_Analysis.ipynb ← ROC, Grad-CAM, 신뢰도, 실패 분석
 │
 ├── docs/
-│ ├── report.pdf ← 최종 보고서
-│ └── slides.pdf ← 발표 슬라이드 (5분)
+│ ├── Term Project(12223552 서지민).pdf ← 최종 보고서
+│ └── Term Project Presentation Slides.pdf ← 발표 슬라이드 (5분)
 │
 ├── results/
 │ ├── comparison_table.csv ← 3-Model 종합 비교
@@ -160,13 +160,16 @@ data/
 
 ---
 ## Visual Analysis
-Training Curves
+##### Training Curves
 <p align="center"> <img src="./results/figures/curves_efficientnet.png" width="80%"> <img src="./results/figures/curves_vit.png" width="80%"> <br> <em>Figure. EfficientNet-B0(좌) 및 ViT-Small(우) 학습 곡선 — Phase 1→2 전환 표시</em> </p>
-Confusion Matrix
+
+##### Confusion Matrix
 <p align="center"> <img src="./results/figures/cm_efficientnet.png" width="80%"> <img src="./results/figures/cm_vit.png" width="80%"> <br> <em>Figure. Confusion Matrix — Count(좌) & Recall 정규화(우)</em> </p>
-Grad-CAM Interpretation
+
+##### Grad-CAM Interpretation
 <p align="center"> <img src="./results/figures/analysis_gradcam_efficientnet.png" width="90%"> <br> <em>Figure. EfficientNet-B0 — 국소적·집중형 attention (눈, 입, 컵 등 단서 영역)</em> </p> <p align="center"> <img src="./results/figures/analysis_gradcam_vit.png" width="90%"> <br> <em>Figure. ViT-Small — 광역적·분산형 attention (얼굴 전체 + 주변 context)</em> </p>
-Failure Case Analysis
+
+##### Failure Case Analysis
 <p align="center"> <img src="./results/figures/analysis_failure_gradcam.png" width="90%"> <br> <em>Figure. 비용 큰 오분류 Top 6 — 옆모습 Distracted → SafeDriving 단일 패턴</em> </p>
 
 ---
