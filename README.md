@@ -45,7 +45,7 @@
 ├── README.md
 ├── requirements.txt ← pip 의존성
 ├── environment.yaml ← conda 환경 (대안)
-├── .gitignore
+├
 │
 ├── notebooks/
 │ ├── DriverInattention_Final.ipynb ← 학습 + 모델 저장, 위험도 분석
